@@ -22,6 +22,15 @@ export const ContractData = () => {
     functionName: "greeting",
   });
 
+  const { data, isLoading: isGreetingLoading2 } = useScaffoldContractRead({
+    contractName: "YourContract",
+    functionName: "getAllGreetings",
+  });
+
+  console.log("data", data);
+  console.log("state", isGreetingLoading2);
+  console.log("cg", currentGreeting);
+
   useScaffoldEventSubscriber({
     contractName: "YourContract",
     eventName: "GreetingChange",
@@ -29,6 +38,8 @@ export const ContractData = () => {
       console.log(greetingSetter, newGreeting, premium, value);
     },
   });
+
+  console.log("count", totalCounter);
 
   const { showAnimation } = useAnimationConfig(totalCounter);
 
